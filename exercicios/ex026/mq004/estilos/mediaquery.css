@@ -1,7 +1,123 @@
 @charset "UFT-8";
 
 /*TODOS AS DEMAIS MIDIAS*/
+/*TYPICAL DEVICE BREAKPOINTS
+pequenas telas: até 600 px
+Celular: até 600 ate 768px
+tablet: 768 px até 992 pxs
+desktop: 992 pxs até 1200 pxs
+grandes telas: acima de 1200 pxs
 
-@media print{
+
+*/
+/* impressão*/
+@media print { 
+body{
+    background-image: url(../imagens/back-print.jpg);
+  
+}
+main{
+    border: 2px solid black;
+    width: 90%;
+}
+main h1{
+    text-shadow: none;
+    color: black;
+}
+main::after{
+    content:'Essa impressão foi feita ataves do site www.cursoemvideo.com' ;
+    text-decoration: overline;
+}
+#phone{
+    display: none;
+    }
     
+    #tablet{
+        display: none;
+    }
+    #print{
+        display: block;
+    }
+    #pc{
+        display: none;
+    }
+    #tv{
+        display: none;
+    }
+}
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width:992px) {  
+
+    body{
+        background-image: url(../imagens/back-tablet.jpg);
+    }
+    #phone{
+        display: none;
+        }
+        
+        #tablet{
+            display: block;
+        }
+        #print{
+            display: none;
+        }
+        #pc{
+            display: none;
+        }
+        #tv{
+            display: none;
+        }
+}
+/*Desktop*/
+@media screen and (min-width: 992px) and (max-width:1200px) { 
+ 
+    body{
+        background-image: url(../imagens/back-pc.jpg);
+    }
+    main{
+        width: 700px;
+        height: 250px;
+    }
+    #phone{
+        display: none;
+        }
+        
+        #tablet{
+            display: none;
+        }
+        #print{
+            display: none;
+        }
+        #pc{
+            display: block;
+        }
+        #tv{
+            display: none;
+        }
+}
+/* Telas grandes*/
+@media screen and (min-width: 1200px)  { 
+body{
+    background-image: url(../imagens/back-tv.jpg);
+
+}
+main{
+    width: 700px;
+}
+    #phone{
+        display: none;
+        }
+        
+        #tablet{
+            display: none;
+        }
+        #print{
+            display: none;
+        }
+        #pc{
+            display: none;
+        }
+        #tv{
+            display: block;
+        }
 }
