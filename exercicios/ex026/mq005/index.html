@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menus Media Query</title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <header>
+<h1>Meu site</h1>
+<menu>
+    <ul>
+        <li><a href="#">Opção 1</a></li>
+        <li><a href="#">Opção 2</a></li>
+        <li><a href="#">Opção 3</a></li>
+        <li><a href="#">Opçaõ 4</a></li>
+        <li><a href="#">Opção 5</a></li>
+    </ul>
+</menu>
+    </header>
+    <main>
+        <article>
+<h2>Testando Media Queries</h2>
+<p>Atualmente podemos observar que as páginas web que desenvolvemos são acessadas pelos mais variados dispositivos, como computadores, celulares, tablets e até mesmo tv’s. Cada um desses dispositivos possui diferentes resoluções e formatos de tela.
+
+
+
+
+    <p>E para conseguirmos que nossos usuários possuam uma boa experiência nossas páginas devem ser capazes de se adequar à esses dispositivos, daí a necessidade de desenvolver páginas que são responsivas. Um dos recursos do CSS que podemos utilizar para alcançar esse objetivo é o recurso conhecido como media queries.</p>
+    
+    
+    <p>Neste artigo iremos aprender o que são os media queries e também sobre a sua sintaxe, para que você possa acompanhar este artigo sem dificuldades é necessário possuir alguns conhecimentos básicos sobre HTML e CSS. Fica aqui a recomendação dos seguintes artigos caso precise refrescar a memória sobre esses tópicos:</p>
+    
+    <p>
+        O que é e como começar com HTML e CSS?
+        Seletores básicos no CSS
+        Unidades de medida no CSS
+        O que são Media Queries?
+        Media query, nada mais é do que uma estrutura do CSS que permite aplicar estilizações especificas para uma página web de acordo com certas condições, fazendo assim com esta página possa se adequar ao layout de tela em diferentes tamanhos e tipos de mídia.
+    </p>
+    
+    <p>
+        <h2>A sintaxe básica ao utilizarmos media query é a seguinte:</h2>
+        
+        Copiar
+        @media (condição) {
+            /* Estilizações CSS */
+        }
+        No exemplo acima, podemos observar a sintaxe dos media queries, primeiramente utilizamos a expressão @media e logo em seguida definimos a condição dentro dos parênteses.
+        
+    </p>
+    
+    <p>
+        Tipos de media ou Media types
+        Sua funcionalidade serve para direcionar determinado CSS para um meio específico de dispositivo, ou seja, definem para qual tipo de media, o CSS que você aplica em seu site será direcionado.
+        
+        Existem vários media types, aqui, citarei alguns:
+        
+        print: Para impressoras;
+        Copiar
+        @media print {
+            /* Estilizações CSS */
+        }
+        screen: Para monitores ou outros dispositivos como computadores, tablets e smartphones com telas coloridas e com resolução adequada;
+        Copiar
+        @media screen and (max-width: 768px){
+            /* Estilizações CSS */
+        }
+        handheld: Para dispositivos de mão.
+        Copiar
+        @media handheld and (min-width: 700px) and (orientantion: landscape){
+            /* Estilizações CSS */
+        }
+        all: Para todos os tipos de mídia.
+        Copiar
+        @media all and (orientation: landscape){
+            /* Estilizações CSS */
+        }
+    </p>
+    <p>
+        <h2>Media features no media query</h2>
+        
+        Um media feature é a largura da janela do documento, normalmente usado para atribuir uma condição que vai testar se o que foi definido é verdadeiro ou falso, ou seja, são elementos do CSS que atribuídos a estrutura do media para exibir quando a estilização sofrerá modificação.
+        
+        De forma simplificada, podemos destacar alguns:
+        
+        orientation
+        width
+        height
+        O orientation possui dois possíveis valores, os quais são portrait e landscape, onde o primeiro define a orientação em retrato, ou seja, se a altura é maior ou igual à largura e o segundo, orientação paisagem seguindo o mesmo resultado citado antes
+        
+        Já o width define a largura do elemento na horizontal. E por último o height que define a altura do elemento na vertical.
+        
+        
+        Muitos media features podem ter prefixado min- ou max-, ou seja, servem para definir a largura mínima ou máxima de uma condição, assim definindo se nossas estilizações serão aplicadas conforme o tamanho da tela. Vamos ver alguns exemplos:
+        
+        Copiar
+        @media (max-width:600px){
+            /* Estilizações CSS */
+        }
+        
+        @media (max-width:600px){
+            .Card-TreinaWeb{
+                flex-direction: column;
+            }
+        }
+        Neste exemplo, podemos observar que foi definido um tamanho máximo de tela, segundo o tamanho que se encontra dentro dos parênteses definido com 600px, chamado de breakpoints, fazendo com que essa estilização só seja aplicada em dispositivos com telas maiores que 600px de largura.
+        
+        
+        Então, partimos para o segundo exemplo de código que mostrará o seu uso com media query para mínimo:
+        
+        Copiar
+        @media (min-width:500px){
+            /* Estilizações CSS */
+        }
+        
+        
+        @media (min-width:500px){
+            .Card-TreinaWeb{
+                flex-direction: column;
+            }
+        }
+        Assim, observamos que foi definido o tamanho mínimo de tela para as nossas alterações. Como exemplo foi usado o flex-direction: column. Que indica que a partir deste tamanho a classe aplicada sofrer uma alteração e ficará em coluna.
+    </p>
+    
+    
+    <p>
+        Nos próximos tópicos aprenderemos como adicionar operadores lógicos que facilitará e simplificará o uso desta explicação.
+        
+        O que é um operador lógico no media query e quais seus tipos?
+        Um operador lógico pode ser uma comparação entre elementos ou resultados, e pode conter, uma negação entre os mesmos e, neste artigo falaremos sobre os operadores lógicos de media query que são: and, or, only e not.
+        
+        Operador lógico and no media queries:
+        Este operador lógico é usado para combinar múltiplas media features em uma mesma media query, requerendo que cada sequência de características, retorne verdadeiro na ordem para que a query seja verdadeira, simplificando isso, no and às duas condições precisam ser verdadeiras para que sua media query funcione. Como no exemplo a seguir:
+        
+        Copiar
+        @media (min-widht: 769px) and (max-width: 1024px){
+            /* Estilizações CSS */
+        }
+        No exemplo anterior, você pode perceber que para a condição entrar no media seria necessário ter o mínimo de largura de 769px e a máxima de 1024px para o tamanho da tela. Está é uma pequena demonstração de como usar o operador and.
+        
+        Copiar
+        @media screen and (max-widht: 600px){
+            /* Estilizações CSS */
+        }
+        
+        Neste outro exemplo, foi adicionado media type para condição do and.
+        
+        
+        Operador lógico only no media queries:
+        Usamos este operador para navegadores que não reconhecem estilos aplicados com media query.
+    </p> 
+    
+    <h2>Como aplicar no CSS:</h2>
+    
+    <p>
+        Copiar
+        @media only screen and (max-width: 768px){
+            /* Estilizações CSS */
+        }
+        Neste exemplo usamos o operador only e o and, para definir o tamanho máximo que sua tela terá que atingir para serem feitas alterações.
+        
+        Operador lógico or no media queries:
+        Este operador lógico é usado com o caractere , que simboliza que para ocorrer alteração no media, uma das condições definidas precisa ser verdadeira.
+    </p>
+    
+    
+    <h2>Exemplo da condição:</h2>
+    
+    <p>
+        Copiar
+        @media (max-width: 30.5em), print and (orientation: portrait) {
+            /* Estilizações CSS */
+        }
+        Para este exemplo, usamos a virgular para definir uma das condições aplicadas e como exemplo atribuímos o orientation.
+        
+        Operador lógico not no media queries:
+        Usamos este operador lógico para negar uma característica na query, porém, ele não pode ser usado sozinho, pois necessita de algo a ser negado para cair na condição aplicada.
+        
+        Copiar
+        @media not all and (monochrome) {...}
+        Neste exemplo, ele está negando tudo que vem após o not, então apenas entrará naquela condição o que diferir da condição.
+        
+        
+        Porém, em casos em que há uso de vírgula, a expressão se encerrará ao inserir o novo conteúdo depois da vírgula.
+    </p>
+    
+    <h2>Conclusão</h2>
+    Neste artigo aprendemos sobre medias types, media queries e seus operadores lógicos. Além dos exemplos citados, existem outros métodos de media mais avançados, por isso recomendo fortemente a leitura da documentação disponibilizada pela Mozilla.</p>
+        </article>
+    </main>
+</body>
+</html>
