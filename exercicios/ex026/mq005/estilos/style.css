@@ -17,8 +17,22 @@ body, html{
     text-align: center;
     padding: 10px;
  }
+
+ #burguer{
+   background-color: rgb(19, 18, 18);
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+ }
+ #burguer:hover{
+ background-color: white;
+ color: black;
+ 
+ }
  menu{
-    display: block;
+    display: none;
  }
 
  menu > ul{
